@@ -1,3 +1,3 @@
 # url_shortener
 
-Shorten a given url.
+A web service in Django to shorten a given url.
