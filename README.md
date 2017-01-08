@@ -1,3 +1,3 @@
-# url-shortener
+# url_shortener
 
 Shorten a given url.
