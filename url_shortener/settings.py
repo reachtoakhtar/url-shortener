@@ -57,8 +57,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'url_shortener.urls'
 ROOT_HOSTCONF = 'url_shortener.hosts'
 DEFAULT_HOST = 'www'  # url name from url_shortener.hosts
-DEFAULT_REDIRECT_URL = "http://www.akhtar.com:8000"
-PARENT_HOST = "akhtar.com:8000"
+DEFAULT_REDIRECT_URL = "http://www.akhtar.com:5000"
+PARENT_HOST = "akhtar.com:5000"
 
 TEMPLATES = [
     {
