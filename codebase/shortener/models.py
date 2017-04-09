@@ -3,7 +3,7 @@ import string
 
 from django.conf import settings
 from django.db import models
-from django_hosts.resolvers import reverse
+from django.urls import reverse
 
 from .validators import validate_url, validate_dot_com
 
@@ -47,5 +47,4 @@ class ShortURL(models.Model):
 		return new_code
 
 	def get_short_url(self):
-		url_path = reverse("scode", kwargs={'shortcode': self.shortcode}, host='www', scheme='http')
-		return url_path
+		return settings.DEFAULT_REDIRECT_URL + reverse("scode", kwargs={'shortcode': self.shortcode})

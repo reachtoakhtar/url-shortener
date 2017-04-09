@@ -25,8 +25,6 @@ SECRET_KEY = 'ja%b@l4t9jhg2qah#!3uy@-_s(s817(2r(5jjfqlzhb^k^f#=d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['www.akhtar.com', 'akhtar.com', 'mah.in', 'www.mah.in']
-
 
 # Application definition
 
@@ -38,12 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'django_hosts',
     'shortener',
 ]
 
 MIDDLEWARE = [
-    'django_hosts.middleware.HostsRequestMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,21 +47,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_hosts.middleware.HostsResponseMiddleware',
 ]
 
-ROOT_URLCONF = 'url_shortener.urls'
-ROOT_HOSTCONF = 'url_shortener.hosts'
-DEFAULT_HOST = 'www'  # url name from url_shortener.hosts
-DEFAULT_REDIRECT_URL = "http://www.mah.in:5000"
-PARENT_HOST = "mah.in:5000"
+ROOT_URLCONF = 'urls'
+DEFAULT_REDIRECT_URL = "http://www.sagir.com"
 
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [TEMPLATE_PATH],
         'APP_DIRS': True,
-        # 'DEBUG': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -77,7 +69,7 @@ TEMPLATES = [
     }
 ]
 
-WSGI_APPLICATION = 'url_shortener.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Database
@@ -88,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': '127.0.0.1',
         'NAME': 'url_shortener',
-        'USER': 'root',
+        'USER': 'akhtar',
         'PASSWORD': '(akhtar)',
     }
 }
